@@ -61,12 +61,6 @@ JS
                 box-shadow: 0 8px 6px -6px black;
             }
     </style>
-
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="css/owl.transitions.css"/>
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
-	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 <body>
 
@@ -162,7 +156,7 @@ JS
 			<div class="row">
 				<div class="col-md-6 text-center animated wow fadeInLeft">
 					<div class="iphone">
-						<img src="tinified2/iphone.png" alt="" titl="">
+						<img src="tinified2/iphone.png" alt="" title="">
 					</div>
 				</div>
 				<div class="col-md-6 animated wow fadeInRight">
@@ -338,9 +332,40 @@ JS
 		<p class="copyright animated wow fadeIn" data-wow-duration="2s"> <strong>Pixelhint</strong>
 	</footer>
 	<!--  End Footer Section  -->
+   
+   
+<!--    Deferred CSS-->
     
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+      <link rel="stylesheet" type="text/css" href="css/owl.transitions.css"/>
+      <link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
+      <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+      <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    </noscript>
     
+<!--    End Deferred CSS-->
+   
+   
+<!--   Load Deferred CSS-->
+   
+   <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script>
     
+<!--    End Load of Deferred CSS-->
+   
+   
     <!-- javascript section -->
     <script async type="text/javascript" src="js/jquery.js"></script>
 	<script async type="text/javascript" src="js/ajaxchimp.js"></script>
